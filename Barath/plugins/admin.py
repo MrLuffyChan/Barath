@@ -79,7 +79,7 @@ async def admins_list(_, message):
      return await msg.edit(mm)
      
 
-@barath.on_message(filters.command("del", prefixes=config.HANDLER) & filters.user(config.OWNER_ID))
+@barath.on_message(filters.command(["del", "d"], prefixes=config.HANDLER) & filters.user(config.OWNER_ID))
 async def delete_message(_, message):
      if message.reply_to_message:
          try:
@@ -126,7 +126,7 @@ async def unban_member(_, message):
     return await message.edit(f"=> {name} Has Been UnBanned!")
 
 
-@barath.on_message(filters.command("purge", prefixes=config.HANDLER) & filters.user(config.OWNER_ID))
+@barath.on_message(filters.command(["purge", "p"], prefixes=config.HANDLER) & filters.user(config.OWNER_ID))
 async def purge(_, message):
     chat_id = message.chat.id
     if not message.reply_to_message:
