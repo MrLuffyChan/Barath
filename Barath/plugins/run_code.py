@@ -25,7 +25,12 @@ async def aexec(code, client, message):
 async def logs(_, message):
        run_logs = run("tail logs.txt")
        msg = await message.edit_text("Analyzing Logging...")
-            await message.reply_text(f"```Shell\n{run_logs}```")
+       thumb_id = "./Barath/barath_img/IMG_20230503_093609_915.jpg"
+       with io.BytesIO(str.encode(run_logs)) as logs:
+            logs.name = "logs.txt"
+            await message.reply_document(
+                document=logs, thumb=thumb_id
+            )
        return await msg.delete()
 
 
@@ -114,4 +119,3 @@ async def eval(client, message):
     else:
         await reply_to_.reply_text(final_output, parse_mode=enums.ParseMode.HTML)
         return await message.delete()
-
