@@ -25,8 +25,7 @@ async def aexec(code, client, message):
 async def logs(_, message):
        run_logs = run("tail logs.txt")
        msg = await message.edit_text("Analyzing Logging...")
-       with io.BytesIO(str.encode(run_logs)) as logs:
-            await message.reply_text(f"```{logs}```")
+            await message.reply_text(f"```{run_logs}```")
        return await msg.delete()
 
 
