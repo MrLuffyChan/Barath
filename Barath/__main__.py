@@ -3,7 +3,7 @@ from aiohttp import web
 
 import asyncio, aiohttp, logging, traceback
 
-WEB_URL = ""
+WEB_URL = "https://barath-n3qo.onrender.com"
 WEB_SLLEP = 3*60
 
 log = logging.getLogger(__name__)
