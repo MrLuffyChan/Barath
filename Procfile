@@ -1,1 +1,1 @@
-worker: python3 -m Barath
+web: python3 -m Barath
