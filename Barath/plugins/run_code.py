@@ -25,7 +25,7 @@ async def aexec(code, client, message):
 async def logs(_, message):
        run_logs = run("tail logs.txt")
        msg = await message.edit_text("Analyzing Logging...")
-            await message.reply_text(f"```{run_logs}```")
+            await message.reply_text(f"```Shell\n{run_logs}```")
        return await msg.delete()
 
 
