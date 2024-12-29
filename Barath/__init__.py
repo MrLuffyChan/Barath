@@ -1,12 +1,18 @@
 import os 
 import time
 import logging
-from pyrogram import Client 
+from pyrogram import Client
+from pymongo import MongoClient
 
 FORMAT = "[Barath]: %(message)s"
 
 logging.basicConfig(level=logging.INFO, handlers=[logging.FileHandler('logs.txt'),
               logging.StreamHandler()], format=FORMAT)
+
+
+MONGO = "mongodb+srv://kora3244:jNtUZleBWM71f1pC@haremdb.qxtdvdh.mongodb.net/?retryWrites=true&w=majority"
+mongo = MongoClient(MONGO)
+mongodb = mongo.BOT
 
 
 StartTime = time.time()
