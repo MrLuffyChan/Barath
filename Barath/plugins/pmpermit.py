@@ -68,7 +68,7 @@ async def setpmmsg(client, message):
 async def allow(client, message):
     chat_id = message.chat.id
     pmpermit, pm_message, limit, block_message = await Zectdb.get_pm_settings()
-    await Zectdb.allow_user(chat_id)
+    Zectdb.allow_user(chat_id)
     await message.edit(f"**I have allowed [you](tg://user?id={chat_id}) to PM me.**")
     async for message in barath.search_messages(
         chat_id=message.chat.id, query=pm_message, limit=1, from_user="me"
@@ -80,7 +80,7 @@ async def allow(client, message):
 @barath.on_message(filters.command("deny", prefixes=config.HANDLER) & filters.user(config.OWNER_ID))
 async def deny(client, message):
     chat_id = message.chat.id
-    await Zectdb.deny_user(chat_id)
+    Zectdb.deny_user(chat_id)
     await message.edit(f"**I have denied [you](tg://user?id={chat_id}) to PM me.**")
 
 
