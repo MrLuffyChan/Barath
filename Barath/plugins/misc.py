@@ -28,7 +28,7 @@ trans = Translator()
 async def translate(_, message) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
-        await message.reply_text("[Reply To The Message Using The Translation Code Provided!](https://telegra.ph/Lang-Codes-03-19-3)")
+        await message.reply_text("Reply to a message to translate it!\n With [translation codes](https://telegra.ph/Lang-Codes-03-19-3)")
         return
     if reply_msg.caption:
         to_translate = reply_msg.caption
@@ -50,6 +50,5 @@ async def translate(_, message) -> None:
         f"**Translated from {source} to {dest}**:\n"
         f"`{translation.text}`"
     )
-    await message.delete()
-    await reply_msg.reply_text(reply)
-    return 
+
+    await message.reply_text(reply)
