@@ -19,10 +19,10 @@ async def pmguard(client, message):
         await message.edit("**I only understand on or off**")
         return
     if arg == "off":
-        await Zectdb.set_pm(False)
+        Zectdb.set_pm(False)
         await message.edit("**PM Guard Deactivated**")
     if arg == "on":
-        await Zectdb.set_pm(True)
+        Zectdb.set_pm(True)
         await message.edit("**PM Guard Activated**")
 
 
